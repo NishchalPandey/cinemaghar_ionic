@@ -1,0 +1,62 @@
+/* Empty. Add your own CSS if you like */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
+body { font-family: 'Roboto', sans-serif; font-size: 1em }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sans-serif; }
+.bar .title, .platform-android .bar .title, .bar.bar-positive .title { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.4em; color: #cf386f; }
+.bar.bar-positive { background: #262e3b; border-color: #262e3b; box-shadow: 0 0 5px rgba(0,0,0,.4); background-image: none !important; }
+.bar.bar-positive.bar-footer { border-top: 1px solid #3a455a; }
+.pane, .view { background-color: #262e3b; }
+.bar-positive .button.button-clear { color: #88859a; }
+.searchBar { color: #88859a; margin: 0 !important; padding: 0; }
+.searchBar .icon { font-size: 27px; line-height: 1.2; padding-right: 6px; padding-left: 6px; }
+.searchBar .searchTxt { left: 80px; width: calc(100% - 125px); position: fixed; height: calc(100% - 10px); }
+.searchBar.numicons2 .searchTxt { width: calc(100% - 135px); }
+.searchBar .searchTxt > .bgdiv { border: 1px solid #3a465a; width: 100%; height: 100%; position: absolute; background: #3a465a; border-radius: 5px; }
+.searchBar .searchTxt > .bgtxt { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.searchBar .searchTxt input { background-color: inherit; color: #fff; padding-left: 15px; padding-right: 15px; width: 100%; }
+.heroHeader { position: relative; display: inline-block; width: 100%; }
+.heroHeader img { width: 100%; float: left; }
+.heroHeader .item { position: absolute; bottom: 0; width: 100%; border: none; margin: 0; background: rgba(0,0,0,.8); padding: 10px 16px; }
+.heroHeader .item h2 { float: left; color: #e0c64d; font-weight: 900; text-transform: uppercase; font-size: 1.2em; margin: 0; }
+.heroHeader .item .item-note { color: #e0c64d; font-size: 1.2em; }
+.tabbed-slidebox { margin: -4px 0 0 0; display: block }
+.tsb-icons{margin:-5px 0 0 0;}
+.tsb-icons * { padding: 0; text-align: center; }
+.tsb-icons a { display: block; padding: 7px; text-transform: uppercase; text-decoration: none; color: #52576a; font-size: 1em; background: #313a4b; }
+.tsb-icons a  { font-size: 2em; display:block; padding:12px}
+.tsb-icons a span{display:inline-block; vertical-align:middle;font-size: .5em; margin:-3px 0 0 0 }
+.tsb-icons a.active { background: #1e252d; color: #cf386f; }
+.thumb.activated { opacity: .5 }
+.thumb .thumbContant { background: #313a4b; }
+.thumb .thumbContant img { width: 100%; display: inline-block }
+.thumb .thumbContant .titleThumb { padding: 10px; margin: -4px 0 0 0; display: block; position: relative; padding-right: 50px; color: #fff; font-size: 1em; font-weight: 300 }
+.thumb .thumbContant .titleThumb .arrow { position: absolute; width: 20px; height: 20px; background: #3c4659; border-radius: 50%; text-align: center; right: 10px; color: #848894; font-size: .8em; line-height: 23px; text-indent: 1px; box-shadow: 0 0 1px rgba(0,0,0,.1) }
+.socialIcons .socialIcon { width: 34px; height: 34px; color: #fff; display: inline-block; text-align: center; line-height: 34px; background: #000; font-size: 1em; border-radius: 50%; margin: 0 0 0 15px; }
+.socialIcons span { float: left; margin: 7px 0 0 5px; }
+.socialIcons .socialIcon.facebook { background: #3c69ea; }
+.socialIcons .socialIcon.twitter { background: #3cafea; }
+.socialIcons .socialIcon.instagram { background: #cf386f; }
+.socialIcons .socialIcon.activated { opacity: .5 }
+.movieList .item.item-thumbnail-left { padding: 10px 10px 10px 170px; border-color: #262e3b; min-height: 82px; background: #303a4b; color: #fff; }
+.movieList .item.item-thumbnail-left.activated { background: #2d3647 }
+.movieList .item h2, .movieList .item p { color: #fff; }
+.movieList .item.item-thumbnail-left img { width: auto; height: 70px; max-width: none; max-height: none; top: 8px; left: 8px; }
+.movieList .item p { margin: 0; }
+.movieList .item p span { display: inline-block; font-size: .8em; padding: 1px 20px; background: #47505f; color: #bdbdbd; margin: 3px 10px 0 0 }
+.movieList .item p.star { color: #ffcf10; margin: 5px 0 0 0; line-height: 1em; font-size: 1em; letter-spacing: 5px; }
+.arrow a.item:before { position: absolute; left: 65px; content: "\f488"; font-family: "Ionicons"; text-align: center; color: #fff; font-size: 1.5em; background: rgba(230,50,50,.9); width: 40px; height: 40px; line-height: 40px; border-radius: 50%; top: 50%; margin: -20px 0 0 0; z-index: 999; text-indent: 5px; }
+.movieList a.item:nth-child(odd) { border-right: 3px solid #68707d; }
+.movieList a.item:nth-child(even) { border-right: 3px solid #e07f7e; }
+.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; }
+.video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.videoDetails{margin:0 0 5px}
+.movieList  .item.item-divider{background:#2f3948; border:none; color:#bdbdbd; text-transform:uppercase;}
+.videoDetails .item{background:#303a4b; border:none;}
+.videoDetails .item h2{color:#fff;}
+.videoDetails .item p{color:#bdbdbd;font-size: .7em; line-height:1.5em}
+.videoDetails .item{padding-right:150px;}
+.videoDetails .item p span { display: inline-block; font-size: 1em; padding: 1px 20px; background: #47505f; color: #bdbdbd; margin: 0px 0px 0 5px }
+.videoDetails .item p.star { color: #ffcf10; margin: 5px 0 5px 0; line-height: 1em; font-size: 1em; letter-spacing: 5px; }
+.videoDetails .item .text-right{position:absolute; top:16px; right:16px; text-align:right}
+.slider-pager .slider-pager-page{color:#cf386f;}
+.slider-pager .slider-pager-page .icon{ font-size:.7em}
