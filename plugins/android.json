@@ -32,6 +32,9 @@
         },
         "phonegap-plugin-push": {
             "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
         }
     },
     "dependent_plugins": {}

@@ -1,9 +1,11 @@
 var ratingModule = angular.module('ratingModule',[]);
 
-ratingModule.service('ratingService', function($ionicPopup, facebookServices, movieFactory){
+ratingModule.service('ratingService', function($ionicPopup, facebookServices, movieFactory,$q){
 	
 	this.ratingDiag = {
 		show: function(scope, movie){
+
+			var deferred = $q.defer();
 			scope.rating ={};
 			scope.rating.value = 0;
 			$ionicPopup.show({
@@ -17,7 +19,6 @@ ratingModule.service('ratingService', function($ionicPopup, facebookServices, mo
 					type:'button-positive',
 					onTap: function(e){
 						var ratingVal = scope.rating.value;
-						
 						var movieTitle = movie.name;
 						var stars = '';
 						var banner_link = movie.banner_name;
@@ -28,11 +29,14 @@ ratingModule.service('ratingService', function($ionicPopup, facebookServices, mo
 							else
 								stars = stars + "\u2606";
 							
-							facebookServices.postToFb("I watched and rated \""+ movieTitle +"\" "+stars+ " on Cinemaghar www.cinemagharhd.com", banner_link);
-							movieFactory.sendRatingToDb(ratingVal, movieTitle);
+						facebookServices.postToFb("I watched and rated \""+ movieTitle +"\" "+stars+ " on Cinemaghar www.cinemagharhd.com", banner_link);
+						movieFactory.sendRatingToDb(ratingVal, movieTitle);
+						scope.rating.done = true;
+						deferred.resolve(ratingVal);
 					}
 				}]
 			});
+			return deferred.promise;
 		}
 
 	}

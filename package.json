@@ -29,7 +29,8 @@
       },
       "locator": "https://github.com/Wizcorp/phonegap-facebook-plugin",
       "id": "phonegap-facebook-plugin"
-    }
+    },
+    "org.apache.cordova.inappbrowser"
   ],
   "cordovaPlatforms": [
     "ios",

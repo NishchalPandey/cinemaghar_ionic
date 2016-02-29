@@ -15,7 +15,7 @@
   </ion-header-bar>
   <ion-content>
     <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
-    <you-tube play = "play" movie="movie" spinner="loading"></you-tube>
+    <you-tube play = "play" video_link="{{movie.video_link}}" spinner="loading"></you-tube>
     <div class="list videoDetails">
       <div class="item item-text-wrap">
         <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
@@ -23,10 +23,10 @@
         <div class="text-right"> 
           <!--<p class="tag"><span>Free</span><span>HD</span></p>-->
           <p class="star">
-            <rating-div rating={{movie.Rating}}>
+            <rating-div rating='movie.Rating'>
           </p>
           </rating-div>
-          <a href="" class="button button-small button-assertive">Watch Trailer</a> </div>
+          <a href="" ng-click ='trailer(movie)' class="button button-small button-assertive">Watch Trailer </a> </div>
       </div>
     </div>
     <!--<div class="list movieList arrow">

@@ -12,7 +12,7 @@
 
 var facebook = angular.module('facebookModule',[]);
 facebook.factory('facebookServices',function($ionicPopup, $window, $q, $ionicPlatform, $http){
-	 
+
 	 facebookLoginDialog = function(){
 					$ionicPopup.show({
 				      title: ' <p>Connect with Facebook  for  better<br> viewing experience</p>',
@@ -35,10 +35,6 @@ facebook.factory('facebookServices',function($ionicPopup, $window, $q, $ionicPla
 			simpleDialog.close();
 		}, 2000);
 
-	}
-				
- 	test = function(){
-		alert("success");
 	}
 
 	apiRequestWallPost = function () {	
@@ -131,8 +127,7 @@ facebook.factory('facebookServices',function($ionicPopup, $window, $q, $ionicPla
 
 	return{
 		postToFb: postToFacebook,
-		login: login,
-		test: test 
+		login: login
 	}
 
 });

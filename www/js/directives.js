@@ -2,7 +2,7 @@ var myDirectives = angular.module('cinemaghar_directives',[])
 .directive('ratingDiv', function(){
   return {
     scope:{
-      rating: '@'
+      rating: '='
     },
     link: function($scope, tElement, tAttrs){
      $scope.$watch('rating',function(newValue, oldValue){
@@ -26,7 +26,6 @@ var myDirectives = angular.module('cinemaghar_directives',[])
           tElement.append(stars);
         }
       })
-
     }
   }
 })
@@ -36,18 +35,19 @@ var myDirectives = angular.module('cinemaghar_directives',[])
     transclude: true, 
     scope:
     {
-      movie:"=",
+      videoLink :"@",
       play: "=",
-      spinner: "="
+      spinner: "=",
+      trailer:'@'
     },                      
     template: '<div id="player"></div>',
     link: function(tScope, tElement, tAttrs){
       YouTubeLoader
       .load
       .then(function(success){
-        tScope.$watch('movie.video_link', function(newValue,oldValue){
+        tScope.$watch('videoLink', function(newValue,oldValue){
+           
           if(typeof(newValue) !="undefined" && newValue != ''){
-            var movie = tScope.movie;
             var player;
             player = new YT.Player(tElement.children()[0], {
               height: '300',
@@ -62,7 +62,7 @@ var myDirectives = angular.module('cinemaghar_directives',[])
                   },
                 'onStateChange': function(event){
                     console.log('code ' + event.data);
-                    if (event.data == YT.PlayerState.PLAYING && !done) {
+                    if (event.data == YT.PlayerState.PLAYING && !done && tScope.trailer != 'true') {
                       tScope.$apply(function(){
                         tScope.play.value = true; 
                       });

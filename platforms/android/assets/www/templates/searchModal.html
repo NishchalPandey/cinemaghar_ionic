@@ -13,11 +13,12 @@
     <div class="list movieList arrow">
       <div class="item item-divider"> found videos </div>
 
-      <a class="item item-thumbnail-left" ng-repeat='movie in allMovies | filter:search' ng-click="modal.hide()" href="#/player/{{movie.id}}">
+      <a class="item item-thumbnail-left" ng-repeat='movie in allMovies | filter:search' ng-click="searchModal.hide()" href="#/player/{{movie.id}}">
     <img ng-src='http://www.cinemagharhd.com/banners/{{movie.banner_name}}'>
       <h2>{{movie.name}}</h2>
       <p class="tag"><span>Free</span><span>HD</span></p>
-      <rating-div rating={{movie.Rating}}></rating-div>
+      <p class='star'><rating-div rating=movie.Rating></rating-div>
+      </p>
       </a>
       <!-- <a class="item item-thumbnail-left" ng-click="playVideo()"> <img src="img/latest.jpg">
       <h2>Pretty Hate Machine</h2>

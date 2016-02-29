@@ -1,5 +1,9 @@
 angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule', 'ratingModule', 'pushNotificationModule'])
   .controller('AppCtrl', function($ionicSlideBoxDelegate, $injector, $ionicPopup, $ionicPlatform, $scope, $ionicModal, $timeout, $location, movieFactory, ratingService, facebookServices, pushNotificationService) {
+    $scope.$on('$ionicView.enter', function(e) {
+     $ionicSlideBoxDelegate.start();
+    })
+
     $scope.loading = true;
     movieFactory.getAllMovies()
       .then(function(success){
@@ -8,12 +12,12 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
       },function(error){
         console.log(error);
     });
-
+      
     $scope.slideHasChanged = function($index){
       if ($index + 1 == $ionicSlideBoxDelegate.slidesCount()){
         $timeout(function(){
           $ionicSlideBoxDelegate.slide(0);
-        }, 3000);
+        }, 3000)
       } 
     }
 
@@ -27,6 +31,13 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
      }, function(failure){
         console.log('fetching slider images failed ' + failure);
       });
+
+    movieFactory.getCatagoryImages()
+      .then(function(success){
+        $scope.catagoryBannerImages = success.data;
+      }, function(failure){
+        console.log(failure);
+      })
 
     $scope.toggleLeft = function() {
         $ionicSideMenuDelegate.toggleLeft();
@@ -93,17 +104,38 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
       		$location.path('/player/'+movie);
         };
     })
-  .controller('playerCtrl',function($scope, $stateParams, movieFactory, $sce, $ionicHistory){
-      
+  .controller('playerCtrl',function($scope, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
+        
+        $scope.closeButtonClicked = function(){
+          $scope.youtubeModal.hide();
+          $scope.youtubeModal.remove();
+        }
+
         $scope.myGoBack = function(play, movie) {
           if(play.value == true){
-            console.log("backbutton tapped");
-           //ratingService.ratingDiag.show($scope, movie);                     
+              console.log("backbutton tapped");
+              ratingService.ratingDiag.show($scope, movie).then(function(success){
+                $ionicHistory.goBack();
+              }, function(error){
+                $ionicHistory.goBack();
+              });
+            }else{
+            //if the rating has not been done this triggers without
+            //ratingDiag being shown
+            $ionicHistory.goBack();
           }
-           $ionicHistory.goBack();
         };
         $scope.loading = true;
         $scope.play = {};
+
+        $scope.trailer  = function(){
+            $ionicModal.fromTemplateUrl('templates/youtubeModal.html',{
+            scope : $scope
+          }).then(function(modal){
+              $scope.youtubeModal = modal;
+              $scope.youtubeModal.show();
+          })
+        }
 
         movieFactory.getAllMovies()
           .then(function(success){

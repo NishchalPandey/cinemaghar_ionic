@@ -1,0 +1,10 @@
+<span class="modalCloseButton" ng-click='closeButtonClicked()'>
+	<img src="img/close-button.gif"/>
+</span>
+<ion-modal-view class="ion-nifty-modal">
+	<div class="ion-modal-content-custom">
+		<ion-content class="padding">
+			<you-tube class="youtubePlayer" play = "play" video_link="{{movie.trailer_link}}" spinner="loading" trailer='true'></you-tube>
+		</ion-content>
+	</div>
+</ion-modal-view>

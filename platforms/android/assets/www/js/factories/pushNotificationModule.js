@@ -1,5 +1,5 @@
 var pushNotMod = angular.module('pushNotificationModule', []);
-    pushNotMod.factory('pushNotificationService', function($q){
+    pushNotMod.factory('pushNotificationService', function($q, $ionicPopup){
 
         var deffered  = $q.defer();
         document.addEventListener("deviceready", function(){
@@ -29,8 +29,17 @@ var pushNotMod = angular.module('pushNotificationModule', []);
                      push.on('notification', function(data) {
                         console.log("notification event :");
                          console.log(JSON.stringify(data));
-                         alert('message : ' + data.message +' title : '+ data.title);
-                         push.finish(function () {
+
+                         $ionicPopup.show({
+                            title: "<h4><span class='title'>"+data.title+"</span></h4>",
+                            template: "<span>"+data.message+"</span>",
+                            buttons:[{
+                                text:'OK',
+                                type: "button-positive"
+                            }]
+                         })
+
+                             push.finish(function () {
                              console.log('finish successfully called');
                          });
                      });

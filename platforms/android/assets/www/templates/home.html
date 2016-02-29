@@ -19,70 +19,11 @@
             <img ng-src="http://cinemagharhd.com/images/{{slide.image_name}}" alt="">
             <div class="item" href="#">
               <h2>Watch Now</h2>
-              <!-- <span class="item-note"> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star-outline"></i> 
-              </span> -->
-              <rating-div class="item-note" rating='{{slide.Rating}}'></rating-div>
+              <rating-div class="item-note" rating='slide.Rating'></rating-div>
             </div>
           </a>
         </div>
       </ion-slide>
-
-    <!--
-      <ion-slide>
-        <div class="box blue">
-          <div class="heroHeader"> <img src="img/img1.jpg" alt="">
-            <div class="item" href="#">
-              <h2>Watch Now</h2>
-              <span class="item-note"> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star-outline"></i> 
-              </span> 
-            </div>
-          </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box yellow">
-          <div class="heroHeader"> <img src="img/img2.jpg" alt="">
-            <div class="item" href="#">
-              <h2>Watch Now</h2>
-              <span class="item-note"> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star-outline"></i> 
-              </span> 
-            </div>
-          </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box pink">
-          <div class="heroHeader"> <img src="img/img3.jpg" alt="">
-            <div class="item" href="#">
-              <h2>Watch Now</h2>
-              <span class="item-note">
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star"></i> 
-                <i class="icon ion-ios-star-outline"></i> 
-              </span> 
-            </div>
-          </div>
-        </div>
-      </ion-slide>
-    -->
-
     </ion-slide-box>
     <div class="tsb-icons"  data-tab-menu data-ng-model="ui.tabview">
       <div class="tsb-ic-wrp row">
@@ -100,19 +41,22 @@
     </div>
     <div data-ng-include="ui.tabview"> </div>
   
-  <div class="bar bar-positive">
+  
+</div>
+
+</ion-content>
+<ion-footer-bar class=" bar-positive">
     <div class="socialIcons">
         <span>Follow Us</span> 
-        <a href="https://www.facebook.com/hdcinemaghar" class="socialIcon facebook">
+        <a href="#" onclick="window.open('https://www.facebook.com/hdcinemaghar','_system','location=no')" class="socialIcon facebook">
           <i class="icon ion-social-facebook"></i>
         </a> 
-        <a href="" class="socialIcon twitter">
+        <a href="" onclick="window.open('https://www.twitter.com/cinemagharapp','_system','location=no')" class="socialIcon twitter">
           <i class="icon ion-social-twitter"></i>
         </a> 
-        <a href="" class="socialIcon instagram">
+        <a href="" onclick="window.open('https://www.instagram.com/cinemaghar' ,'_system','location=no')" class="socialIcon instagram">
           <i class="icon ion-social-instagram"></i>
         </a>
     </div>
-</div>
-</ion-content>
+</ion-footer-bar>
 </ion-view>

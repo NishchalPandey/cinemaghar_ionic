@@ -30,12 +30,17 @@ cinemagharhdServicesModule.factory('movieFactory',
       },
     getSliderImages: function(){
       return $http.get("http://cinemagharhd.com/php/pull_slider_images_v2.php");
+    },
+
+    getCatagoryImages: function(){
+      return $http.get("http://cinemagharhd.com/php/getCatagoryImages.php");
     }
   }
 }]);
 cinemagharhdServicesModule.factory('YouTubeLoader', function($q, $window) {
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
+    tag.async = true;
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     var loaded = false;

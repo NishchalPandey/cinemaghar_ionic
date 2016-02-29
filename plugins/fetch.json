@@ -66,5 +66,13 @@
             "APP_ID": "398284740360994",
             "APP_NAME": "Cinemaghar"
         }
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
