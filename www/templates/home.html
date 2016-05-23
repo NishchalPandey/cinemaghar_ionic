@@ -4,7 +4,7 @@
       <button class="button button-icon button-clear ion-ios-information-outline" ng-click = "showDisclaimerModal()"> </button>
     </div>
     <h1 class="title">
-      <img class="appIcon" src="img/icon.png" style="" alt=""> 
+      <img class="appIcon" src="img/icon.png" style="" alt="">
       CINEMAGHAR</h1>
     <div class="buttons">
       <button class="button button-clear button-icon ion-ios-search"  ng-click="searchModal.show()"></button>
@@ -15,7 +15,7 @@
     <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" slide-interval="3000" does-continue="true">
       <ion-slide ng-repeat="slide in sliderImages" ng-hide="loading">
        <div class="box blue">
-          <a href="#/player/{{slide.movie_id}}" class="heroHeader"> 
+          <a href="#/player/{{slide.movie_id}}" class="heroHeader">
             <img ng-src="http://cinemagharhd.com/images/{{slide.image_name}}" alt="">
             <div class="item" href="#">
               <h2>Watch Now</h2>
@@ -40,21 +40,21 @@
       </div>
     </div>
     <div data-ng-include="ui.tabview"> </div>
-  
-  
+
+
 </div>
 
 </ion-content>
 <ion-footer-bar class=" bar-positive">
     <div class="socialIcons">
-        <span>Follow Us</span> 
-        <a href="#" onclick="window.open('https://www.facebook.com/hdcinemaghar','_system','location=no')" class="socialIcon facebook">
+        <span>Follow Us</span>
+        <a href="#" onclick="window.open('https://www.facebook.com/hdcinemaghar','_system','location=yes')" class="socialIcon facebook">
           <i class="icon ion-social-facebook"></i>
-        </a> 
-        <a href="" onclick="window.open('https://www.twitter.com/cinemagharapp','_system','location=no')" class="socialIcon twitter">
+        </a>
+        <a href="" onclick="window.open('https://www.twitter.com/cinemagharapp','_system','location=yes')" class="socialIcon twitter">
           <i class="icon ion-social-twitter"></i>
-        </a> 
-        <a href="" onclick="window.open('https://www.instagram.com/cinemaghar' ,'_system','location=no')" class="socialIcon instagram">
+        </a>
+        <a href="" onclick="window.open('https://www.instagram.com/cinemaghar' ,'_system','location=yes')" class="socialIcon instagram">
           <i class="icon ion-social-instagram"></i>
         </a>
     </div>

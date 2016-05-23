@@ -1,9 +1,10 @@
 var pushNotMod = angular.module('pushNotificationModule', []);
     pushNotMod.factory('pushNotificationService', function($q, $ionicPopup){
 
-        var deffered  = $q.defer();
+        var deferred  = $q.defer();
         document.addEventListener("deviceready", function(){
-            deffered.resolve(PushNotification);
+            deferred.resolve(PushNotification);
+
             var push = PushNotification.init({ "android": 
                                                             {"senderID": "714035949489"},
                                                         "ios": 
@@ -49,7 +50,7 @@ var pushNotMod = angular.module('pushNotificationModule', []);
                      });
     }, false);
     
-    return deffered.promise;
+    return deferred.promise;
 
     });	
          

@@ -11,4 +11,5 @@ var textFilterModule = angular.module('filterModule', [])
 				}
 			return fullSentence;
 		}
-	});
+	})
+	

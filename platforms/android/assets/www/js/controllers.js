@@ -12,13 +12,13 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
       },function(error){
         console.log(error);
     });
-      
+
     $scope.slideHasChanged = function($index){
       if ($index + 1 == $ionicSlideBoxDelegate.slidesCount()){
         $timeout(function(){
           $ionicSlideBoxDelegate.slide(0);
         }, 3000)
-      } 
+      }
     }
 
     movieFactory.getSliderImages()
@@ -42,22 +42,22 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
     $scope.toggleLeft = function() {
         $ionicSideMenuDelegate.toggleLeft();
     };
-    
+
     $ionicModal.fromTemplateUrl('templates/searchModal.html', {
       scope: $scope
     }).then(function(modal) {
       $scope.searchModal = modal;
     });
-    
-    $scope.createContact = function(u) {        
+
+    $scope.createContact = function(u) {
       $scope.contacts.push({ name: u.firstName + ' ' + u.lastName });
       $scope.searchModal.hide();
     };
-    
+
     $scope.showDisclaimerModal = function (){
       $ionicPopup.show({
         title:'Disclaimer',
-        templateUrl: 'templates/disclaimerModal.html', 
+        templateUrl: 'templates/disclaimerModal.html',
         buttons:[{
           text:'ok'
         }]
@@ -92,20 +92,20 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
                 $scope.allMovies.push(movies[i]);
               }
             }
-             $scope.loading = false; 
+             $scope.loading = false;
           }
-  	  
+
         $scope.homePage = function() {
           $location.path('/homePage');
         };
-  	
+
         $scope.playVideo =function(movie){
           console.log(movie);
       		$location.path('/player/'+movie);
         };
     })
   .controller('playerCtrl',function($scope, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
-        
+
         $scope.closeButtonClicked = function(){
           $scope.youtubeModal.hide();
           $scope.youtubeModal.remove();
@@ -154,19 +154,19 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
   .directive('tabMenu',[function(){
       return {
         restrict:'A',
-        require: 'ngModel',                  
-        scope: { modelValue: '=ngModel' },  // modelValue for $watch 
+        require: 'ngModel',
+        scope: { modelValue: '=ngModel' },  // modelValue for $watch
         link:function(scope, element, attr, ngModel){
-           
+
             // Links collection
             var links=element.find('a');
-          
+
             // Add click listeners
             links.on('click',function(e){
                 e.preventDefault();
                 ngModel.$setViewValue( angular.element(this).attr('href') );
                 scope.$apply();
-            })        
+            })
 
             // State handling (set active) on model change
             scope.$watch('modelValue',function(){
