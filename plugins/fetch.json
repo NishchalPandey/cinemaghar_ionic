@@ -55,18 +55,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "phonegap-facebook-plugin": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "398284740360994",
-            "APP_NAME": "Cinemaghar"
-        }
-    },
     "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
@@ -74,5 +62,16 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "phonegap-facebook-plugin": {
+        "source": {
+            "type": "local",
+            "path": "/Users/nishchalpandey/phonegap-facebook-plugin-master"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "398284740360994",
+            "APP_NAME": "Cinemaghar"
+        }
     }
 }

@@ -40,14 +40,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
-        "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
-        "pluginId": "phonegap-facebook-plugin",
-        "clobbers": [
-            "facebookConnectPlugin"
-        ]
-    },
-    {
         "file": "plugins/phonegap-plugin-push/www/push.js",
         "id": "phonegap-plugin-push.PushNotification",
         "pluginId": "phonegap-plugin-push",
@@ -63,6 +55,14 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
+        "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
+        "pluginId": "phonegap-facebook-plugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -74,9 +74,9 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.1.0",
     "cordova-plugin-whitelist": "1.2.1",
     "ionic-plugin-keyboard": "1.0.8",
-    "phonegap-facebook-plugin": "0.12.0",
     "phonegap-plugin-push": "1.5.3",
-    "cordova-plugin-inappbrowser": "1.3.0"
+    "cordova-plugin-inappbrowser": "1.3.0",
+    "phonegap-facebook-plugin": "0.12.0"
 }
 // BOTTOM OF METADATA
 });

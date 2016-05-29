@@ -25,16 +25,16 @@
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
         },
-        "phonegap-facebook-plugin": {
-            "APP_ID": "398284740360994",
-            "APP_NAME": "Cinemaghar",
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
-        },
         "phonegap-plugin-push": {
             "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "398284740360994",
+            "APP_NAME": "Cinemaghar",
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
         }
     },
     "dependent_plugins": {}

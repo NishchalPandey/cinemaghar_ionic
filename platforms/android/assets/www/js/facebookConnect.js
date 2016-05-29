@@ -19,7 +19,7 @@ facebook.factory('facebookServices',function($ionicPopup, $window, $q, $ionicPla
 				      template:'<i class=" alert-close-icon button button-icon ion-close-circled" onclick="popUp.close();"></i>'+
 				      '<img class="button button-bar button-clear" onclick="login();" id="facebook-connect-button" src="img/facebook-connect-button.png">',
 				    })
-				}();
+				};
 
 	simpleAlert = function(content){
 		var simpleDialog = $ionicPopup.show({
