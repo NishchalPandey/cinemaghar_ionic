@@ -11,9 +11,7 @@
     <input type="search" placeholder="Search">
   </label> -->
     <div class="list movieList arrow">
-
     <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
-
     <a class="item item-thumbnail-left" ng-repeat='movie in allMovies' href="#/player/{{movie.id}}">
       <img ng-src='http://www.cinemagharhd.com/banners/{{movie.banner_name}}'>
       <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
