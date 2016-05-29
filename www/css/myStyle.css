@@ -35,6 +35,10 @@
 	line-height: 2em;
 }
 
+.search-input{
+  background-color: rgb(50,50,50);
+}
+
 .ion-nifty-modal {
   width: 90%;
   min-height: 0 !important;
@@ -54,7 +58,9 @@
   background-color: #333;
   border-radius: 10px; }
 
-/* Fix modal backdrop for smaller devices */
+
+
+/* Fix modal backdrop for smaller devices
 @media (max-width: 679px) {
   .active .modal-backdrop-bg {
     opacity: .5; }
@@ -75,3 +81,4 @@
   font-size:30px;
   color: #AAAAAA;
 }
+*/
