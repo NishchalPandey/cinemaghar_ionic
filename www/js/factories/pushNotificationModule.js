@@ -6,7 +6,7 @@ var pushNotMod = angular.module('pushNotificationModule', []);
             deferred.resolve(PushNotification);
 
             var push = PushNotification.init({ "android": 
-                                                            {"senderID": "714035949489"},
+                                             {"senderID": "714035949489"},
                                                         "ios": 
                                                             {"alert": "true", 
                                                             "badge": "true", 

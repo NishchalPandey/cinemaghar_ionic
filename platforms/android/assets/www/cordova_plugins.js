@@ -9,6 +9,15 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
         "id": "cordova-plugin-splashscreen.SplashScreen",
         "pluginId": "cordova-plugin-splashscreen",
@@ -40,28 +49,19 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/phonegap-plugin-push/www/push.js",
-        "id": "phonegap-plugin-push.PushNotification",
-        "pluginId": "phonegap-plugin-push",
-        "clobbers": [
-            "PushNotification"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "pluginId": "cordova-plugin-inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
-    },
-    {
         "file": "plugins/phonegap-facebook-plugin/facebookConnectPlugin.js",
         "id": "phonegap-facebook-plugin.FacebookConnectPlugin",
         "pluginId": "phonegap-facebook-plugin",
         "clobbers": [
             "facebookConnectPlugin"
+        ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-push/www/push.js",
+        "id": "phonegap-plugin-push.PushNotification",
+        "pluginId": "phonegap-plugin-push",
+        "clobbers": [
+            "PushNotification"
         ]
     }
 ];
@@ -70,13 +70,13 @@ module.exports.metadata =
 {
     "cordova-plugin-console": "1.0.2",
     "cordova-plugin-device": "1.1.1",
+    "cordova-plugin-inappbrowser": "1.3.0",
     "cordova-plugin-splashscreen": "3.1.0",
     "cordova-plugin-statusbar": "2.1.0",
     "cordova-plugin-whitelist": "1.2.1",
     "ionic-plugin-keyboard": "1.0.8",
-    "phonegap-plugin-push": "1.5.3",
-    "cordova-plugin-inappbrowser": "1.3.0",
-    "phonegap-facebook-plugin": "0.12.0"
+    "phonegap-facebook-plugin": "0.12.0",
+    "phonegap-plugin-push": "1.5.3"
 }
 // BOTTOM OF METADATA
 });

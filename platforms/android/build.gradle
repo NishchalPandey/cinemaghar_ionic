@@ -96,7 +96,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "phonegap-plugin-push/digitalsagar677449-push.gradle"
+apply from: "phonegap-plugin-push/YoutubeVideoPlayerProject-push.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -173,6 +173,8 @@ android {
     }
 
     defaultConfig {
+    	applicationId = "com.cinemagharhd.YoutubeVideoPlayerProject"
+    	
         versionCode cdvVersionCode ?: Integer.parseInt("" + privateHelpers.extractIntFromManifest("versionCode") + "0")
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
@@ -246,9 +248,9 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: "CordovaLib", configuration: "debug")
     releaseCompile project(path: "CordovaLib", configuration: "release")
-    debugCompile project(path: "phonegap-facebook-plugin:digitalsagar677449-FacebookLib", configuration: "debug")
-    releaseCompile project(path: "phonegap-facebook-plugin:digitalsagar677449-FacebookLib", configuration: "release")
-    compile "com.android.support:support-v13:23+"
+    debugCompile project(path: "phonegap-facebook-plugin:FacebookLib", configuration: "debug")
+    releaseCompile project(path: "phonegap-facebook-plugin:FacebookLib", configuration: "release")
+    compile "com.android.support:support-v13:20+"
     compile "com.google.android.gms:play-services-gcm:+"
     // SUB-PROJECT DEPENDENCIES END
 }

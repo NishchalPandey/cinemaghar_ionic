@@ -8,32 +8,32 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
-        },
-        "phonegap-plugin-push": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.digitalsagar677449"
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
         },
         "phonegap-facebook-plugin": {
             "APP_ID": "398284740360994",
             "APP_NAME": "Cinemaghar",
+            "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
+        },
+        "phonegap-plugin-push": {
             "PACKAGE_NAME": "com.cinemagharhd.YoutubeVideoPlayerProject"
         }
     },
