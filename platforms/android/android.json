@@ -111,11 +111,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.cinemagharhd.YoutubeVideoPlayerProject.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"${applicationId}.permission.C2D_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.cinemagharhd.YoutubeVideoPlayerProject.permission.C2D_MESSAGE\" />",
                             "count": 1
                         }
                     ],

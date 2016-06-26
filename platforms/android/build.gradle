@@ -96,7 +96,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "phonegap-plugin-push/digitalsagar677449-push.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -184,6 +183,9 @@ android {
 
     if (Boolean.valueOf(cdvBuildMultipleApks)) {
         productFlavors {
+	        flavor1{
+	        	applicationId = "com.cinemagharhd.YoutubeVideoPlayerProject"	
+	        }
             armv7 {
                 versionCode cdvVersionCode ?: defaultConfig.versionCode + 2
                 ndk {

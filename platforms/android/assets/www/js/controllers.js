@@ -105,6 +105,19 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
           $scope.youtubeModal.hide();
           $scope.youtubeModal.remove();
         }
+
+         var getViewsCount = function(videoId){
+           movieFactory.getViewCount(videoId)
+          .then(function(res){
+              //var res = JSON.parse(response);
+              console.log(res);
+              $scope.title = res.data.items[0].snippet.title;
+              $scope.description = res.data.items[0].snippet.description;
+              $scope.viewCount = res.data.items[0].statistics.viewCount;
+              //$scope.viewCount = res.items[0].statistics.viewCount;
+          }, function(err){})
+        }
+
         $scope.myGoBack = function(play, movie) {
           if(play.value == true){
               console.log("backbutton tapped");
@@ -121,17 +134,17 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
         };
         $scope.loading = true;
         $scope.play = {};
-        
+
         var onHardwareBackButtonEventCallback = function(){
         	$scope.myGoBack($scope.play, $scope.movie);
         };
-        
+
         $ionicPlatform.onHardwareBackButton(onHardwareBackButtonEventCallback);
-        
+
         $scope.$on('$ionicView.afterLeave', function(e,d){
         	$ionicPlatform.offHardwareButton(onHardwareBackButtonEventCallback);
         });
-        
+
 
         $scope.trailer  = function(){
             $ionicModal.fromTemplateUrl('templates/youtubeModal.html',{
@@ -148,7 +161,9 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
             var id = $stateParams.movieId;
             for(i=0;i<movies.length; i++){
               if (movies[i].id == id){
-                movies[i].video_link = $sce.trustAsResourceUrl(movies[i].video_link);
+                var videoLink = $sce.trustAsResourceUrl(movies[i].video_link);
+                movies[i].video_link = videoLink;
+                getViewsCount(videoLink);
                 $scope.movie = movies[i];
               }
             }

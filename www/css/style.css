@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sa
 .videoDetails{margin:0 0 5px}
 .movieList  .item.item-divider{background:#2f3948; border:none; color:#bdbdbd; text-transform:uppercase;}
 .videoDetails .item{background:#303a4b; border:none;}
-.videoDetails .item h2{color:#fff;}
+.videoDetails .item h2{color:#fff; margin-bottom: 20px;}
 .videoDetails .item p{color:#bdbdbd;font-size: .7em; line-height:1.5em}
 .videoDetails .item{padding-right:150px; min-height: 100px;}
 .videoDetails .item p span { display: inline-block; font-size: 1em; padding: 1px 20px; background: #47505f; color: #bdbdbd; margin: 0px 0px 0 5px }

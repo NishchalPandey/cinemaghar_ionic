@@ -19,6 +19,9 @@ cinemagharhdServicesModule.factory('movieFactory',
         return $http.get('http://cinemagharhd.com/php/pull_movies.php?type=catagory&string='+catagory)
     },
 
+    getViewCount : function(videoId){
+        return $http.get('https://www.googleapis.com/youtube/v3/videos?part=snippet%2C+statistics&id='+ videoId +'&maxResults=50&key=AIzaSyDnQc2xtPwYUgg5zuM_7FSU-2Z6iJAu_8c')
+    },
     sendRatingToDb : function(ratingVal, movieTitle){
         var postData = $.param({rating: ratingVal, movie_name: movieTitle});
         $http({
@@ -45,12 +48,12 @@ cinemagharhdServicesModule.factory('YouTubeLoader', function($q, $window) {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     var loaded = false;
     var delay = $q.defer();
-    
+
   $window.onYouTubeIframeAPIReady = function() {
     if (!loaded) {
       loaded = true;
       delay.resolve();
-    } 
+    }
   }
 return {
     load: delay.promise

@@ -11,17 +11,20 @@
 
     <h1 class="title">Cinemaghar Player</h1>
     </ion-nav-bar>
-  
+
   </ion-header-bar>
   <ion-content>
     <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
     <you-tube play = "play" video_link="{{movie.video_link}}" spinner="loading"></you-tube>
     <div class="list videoDetails">
       <div class="item item-text-wrap">
-        <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
-        <p>{{movie.description}}</p>
-        <div class="text-right"> 
+        <h2>{{title}}</h2>
+        <!--h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2-->
+        <p>{{description}}</p>
+        <!--p>{{movie.description}}</p  -->
+        <div class="text-right">
           <!--<p class="tag"><span>Free</span><span>HD</span></p>-->
+          <h2>{{viewCount | number}} views</h2>
           <p class="star">
             <rating-div rating='movie.Rating'>
           </p>
@@ -36,6 +39,6 @@
       <p class="tag"><span>Free</span><span>HD</span></p>
       <p class="star"><i class="icon ion-ios-star"></i><i class="icon ion-ios-star"></i><i class="icon ion-ios-star"></i><i class="icon ion-ios-star-outline"></i><i class="icon ion-ios-star-outline"></i></p>
       </a> </div>
-    --> 
+    -->
   </ion-content>
 </ion-view>

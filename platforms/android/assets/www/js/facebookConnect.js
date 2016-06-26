@@ -10,10 +10,8 @@
 */
 
 
-var facebook = angular.module('facebookModule',["ngCordova"]);
-facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $window, $q, $ionicPlatform, $http){
-    $cordovaFacebook.login
-	
+var facebook = angular.module('facebookModule',[]);
+facebook.factory('facebookServices',function($ionicPopup, $window, $q, $ionicPlatform, $http){
 	facebookLoginDialog = function(){
 					popUp = $ionicPopup.show({
 				      title: '<p>Connect with Facebook  for  better<br> viewing experience</p>',
@@ -47,8 +45,8 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
 	    window.localStorage.setItem("postPermission","set");
 	    return false;
 	}
-	
-	apiGetPublicProfile = function () { 
+
+	apiGetPublicProfile = function () {
 	    facebookConnectPlugin.api( "me/?fields=id,email,first_name,last_name", ["public_profile"],
 	        function (response) {
 	        	console.log("API GET PUBLIC PROFILE " + JSON.stringify(response));
@@ -56,12 +54,12 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
 	           simpleAlert("<h4 style='text-align:center'>Welcome back <br>" + response.first_name + "!</h4>");
 	           //var responseDb = sendUserInfoToDb(response);
 	    	},
-	        function (response) { 
+	        function (response) {
 	        	console.log("ERROR in apiGetPublicProfile");
 	            simpleAlert("something went wrong");
-	    	}); 
-	}	
-	
+	    	});
+	}
+
 	login = function () {
 	    facebookConnectPlugin.login( ["email"],
 	        function (response) {
@@ -70,10 +68,10 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
 	    	popUp.close();
 	    return true;
 	}
-	
-	
-	getStatus = function () { 
-		facebookConnectPlugin.getLoginStatus( 
+
+
+	getStatus = function () {
+		facebookConnectPlugin.getLoginStatus(
 	        function (response) {
 	        			console.log("GET STATUS RES :" + JSON.stringify(response));
 	                    if(response.status == "unknown"){
@@ -88,7 +86,7 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
 	        		facebookLoginDialog();
 	        	});
 	}
-	
+
 	sendUserInfoToDb = function(content){
 		var postData = $.param({userInfo: content});
 		$http({
@@ -119,7 +117,7 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
 	        	simpleAlert("Unable to Post, user is not logged in!");
 	        });
 	}
-	
+
 	function checkPublishPermissions(){
 		facebookConnectPlugin.api( "me/permissions", ["public_profile"],
         function (response) {
@@ -127,11 +125,11 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
            simpleAlert("<h4 style='text-align:center'>Welcome back <br>" + response.first_name + "!</h4>");
            var responseDb = sendUserInfoToDb(response);
     	},
-        function (response) { 
+        function (response) {
             simpleAlert("something went wrong" + JSON.stringify(response));
-    	}); 
+    	});
 	}
-	
+
 
 	document.addEventListener("deviceready", function(){
 		//checkPublishPermissions();
@@ -142,5 +140,5 @@ facebook.factory('facebookServices',function($ionicPopup, $cordovaFacebook, $win
 	return{
 		postToFb: postToFacebook
 	}
-                 
+
 });

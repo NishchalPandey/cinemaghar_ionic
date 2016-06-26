@@ -32,21 +32,21 @@ var myDirectives = angular.module('cinemaghar_directives',[])
 .directive('youTube', function($window, ratingService, YouTubeLoader){
   return{
     restrict: 'E',
-    transclude: true, 
+    transclude: true,
     scope:
     {
       videoLink :"@",
       play: "=",
       spinner: "=",
       trailer:'@'
-    },                      
+    },
     template: '<div id="player"></div>',
     link: function(tScope, tElement, tAttrs){
       YouTubeLoader
       .load
       .then(function(success){
         tScope.$watch('videoLink', function(newValue,oldValue){
-           
+
           if(typeof(newValue) !="undefined" && newValue != ''){
             var player;
             player = new YT.Player(tElement.children()[0], {
@@ -56,23 +56,24 @@ var myDirectives = angular.module('cinemaghar_directives',[])
               playerVars:{
                 autoplay: 0,
                 controls: 1,
-                showinfo: 0
+                showinfo: 0,
+                iv_load_policy:3
               },
               events: {
                 'onReady': function(event){
                     console.log('youtube player ready');
                     tScope.$apply(function(){
                       tScope.spinner = false;
-                    })  
-                    player.playVideo();
+                    })
+                    //player.playVideo();
                   },
                 'onStateChange': function(event){
                     console.log('code ' + event.data);
                     if (event.data == YT.PlayerState.PLAYING && !done && tScope.trailer != 'true') {
                       tScope.$apply(function(){
-                        tScope.play.value = true; 
+                        tScope.play.value = true;
                       });
-                    }      
+                    }
                 }
               }
             });
@@ -81,11 +82,11 @@ var myDirectives = angular.module('cinemaghar_directives',[])
             var stopVideo = function() {
               player.stopVideo();
             }
-            
+
             var pauseVideo = function(){
               player.pauseVideo();
             }
-            
+
             document.addEventListener("pause", pauseVideo, false);
           }
         })
