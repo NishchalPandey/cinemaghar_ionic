@@ -79,7 +79,7 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
   	$scope.ui = {};
   	$scope.ui.tabview = 'templates/tab-movie.html';
   })
-  .controller('itemListCtrl', function($scope, $stateParams,$location, movieFactory){
+  .controller('itemListCtrl', function($scope, $ionicPlatform, $stateParams,$location, movieFactory){
         var catagory = $stateParams.catagory;
         $scope.catagory = $stateParams.catagory;
         $scope.loading = true;
@@ -98,19 +98,13 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
         $scope.homePage = function() {
           $location.path('/homePage');
         };
-
-        $scope.playVideo =function(movie){
-          console.log(movie);
-      		$location.path('/player/'+movie);
-        };
     })
-  .controller('playerCtrl',function($scope, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
+  .controller('playerCtrl',function($scope, $ionicPlatform, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
 
         $scope.closeButtonClicked = function(){
           $scope.youtubeModal.hide();
           $scope.youtubeModal.remove();
         }
-
         $scope.myGoBack = function(play, movie) {
           if(play.value == true){
               console.log("backbutton tapped");
@@ -127,6 +121,17 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
         };
         $scope.loading = true;
         $scope.play = {};
+        
+        var onHardwareBackButtonEventCallback = function(){
+        	$scope.myGoBack($scope.play, $scope.movie);
+        };
+        
+        $ionicPlatform.onHardwareBackButton(onHardwareBackButtonEventCallback);
+        
+        $scope.$on('$ionicView.afterLeave', function(e,d){
+        	$ionicPlatform.offHardwareButton(onHardwareBackButtonEventCallback);
+        });
+        
 
         $scope.trailer  = function(){
             $ionicModal.fromTemplateUrl('templates/youtubeModal.html',{
@@ -150,6 +155,13 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
           },function(error){
             console.log(error);
         });
+        // $ionicPlatform.onHardwareBackButton(function(){
+        //   play = $scope.play;
+        //   movie = $scope.movie;
+	      //     if(play.value == true){
+	      //         ratingService.ratingDiag.show($scope, movie);
+	      //     	}
+	      // });
   })
   .directive('tabMenu',[function(){
       return {

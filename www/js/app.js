@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives', 'filterModule'])
+angular.module('starter', ['ionic','starter.controllers','ngCordova','cinemaghar_directives', 'filterModule'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicHistory, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,6 +19,16 @@ angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives'
       StatusBar.styleDefault();
     }
   });
+
+  $ionicPlatform.registerBackButtonAction(function(e) {
+	  if($state.is('player')){
+		e.preventDefault();
+		return false;
+	  }else{
+		$ionicHistory.goBack();
+	  }
+  }, 101);
+  
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -39,7 +49,7 @@ angular.module('starter', ['ionic','starter.controllers','cinemaghar_directives'
       url: '/itemList/:catagory',
   	  templateUrl: 'templates/item-list.html',
   	  controller: 'itemListCtrl'
-       
+
     })
     .state('player', {
       url: '/player/:movieId',

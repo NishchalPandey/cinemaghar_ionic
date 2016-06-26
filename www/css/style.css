@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Roboto', sa
 .videoDetails .item{background:#303a4b; border:none;}
 .videoDetails .item h2{color:#fff;}
 .videoDetails .item p{color:#bdbdbd;font-size: .7em; line-height:1.5em}
-.videoDetails .item{padding-right:150px;}
+.videoDetails .item{padding-right:150px; min-height: 100px;}
 .videoDetails .item p span { display: inline-block; font-size: 1em; padding: 1px 20px; background: #47505f; color: #bdbdbd; margin: 0px 0px 0 5px }
 .videoDetails .item p.star { color: #ffcf10; margin: 5px 0 5px 0; line-height: 1em; font-size: 1em; letter-spacing: 5px; }
 .videoDetails .item .text-right{position:absolute; top:16px; right:16px; text-align:right}

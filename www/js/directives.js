@@ -53,12 +53,18 @@ var myDirectives = angular.module('cinemaghar_directives',[])
               height: '300',
               width: '100%',
               videoId: newValue,
+              playerVars:{
+                autoplay: 0,
+                controls: 1,
+                showinfo: 0
+              },
               events: {
                 'onReady': function(event){
                     console.log('youtube player ready');
                     tScope.$apply(function(){
                       tScope.spinner = false;
                     })  
+                    player.playVideo();
                   },
                 'onStateChange': function(event){
                     console.log('code ' + event.data);
@@ -72,10 +78,15 @@ var myDirectives = angular.module('cinemaghar_directives',[])
             });
 
             var done = false;
-
             var stopVideo = function() {
               player.stopVideo();
             }
+            
+            var pauseVideo = function(){
+              player.pauseVideo();
+            }
+            
+            document.addEventListener("pause", pauseVideo, false);
           }
         })
 
