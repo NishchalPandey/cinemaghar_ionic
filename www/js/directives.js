@@ -7,6 +7,7 @@ var myDirectives = angular.module('cinemaghar_directives',[])
     link: function($scope, tElement, tAttrs){
      $scope.$watch('rating',function(newValue, oldValue){
         if(newValue != ''){
+          if( typeof($scope.rating) != "undefined"){
           var rating = $scope.rating;
           var numDin = rating.split("/");
           var finalRating = numDin[0]/numDin[1];
@@ -24,77 +25,9 @@ var myDirectives = angular.module('cinemaghar_directives',[])
             }
           }
           tElement.append(stars);
+          }
         }
       })
-    }
-  }
-})
-.directive('youTube', function($window, ratingService, YouTubeLoader){
-  return{
-    restrict: 'E',
-    transclude: true,
-    scope:
-    {
-      videoLink :"@",
-      play: "=",
-      spinner: "=",
-      trailer:'@'
-    },
-    template: '<div id="player"></div>',
-    link: function(tScope, tElement, tAttrs){
-      YouTubeLoader
-      .load
-      .then(function(success){
-        tScope.$watch('videoLink', function(newValue,oldValue){
-
-          if(typeof(newValue) !="undefined" && newValue != ''){
-            var player;
-            player = new YT.Player(tElement.children()[0], {
-              height: '300',
-              width: '100%',
-              videoId: newValue,
-              playerVars:{
-                autoplay: 0,
-                controls: 1,
-                showinfo: 0,
-                iv_load_policy:3
-              },
-              events: {
-                'onReady': function(event){
-                    console.log('youtube player ready');
-                    tScope.$apply(function(){
-                      tScope.spinner = false;
-                    })
-                    //player.playVideo();
-                  },
-                'onStateChange': function(event){
-                    console.log('code ' + event.data);
-                    if (event.data == YT.PlayerState.PLAYING && !done && tScope.trailer != 'true') {
-                      tScope.$apply(function(){
-                        tScope.play.value = true;
-                      });
-                    }
-                }
-              }
-            });
-
-            var done = false;
-            var stopVideo = function() {
-              player.stopVideo();
-            }
-
-            var pauseVideo = function(){
-              player.pauseVideo();
-            }
-
-            document.addEventListener("pause", pauseVideo, false);
-          }
-        })
-
-    },
-    function(failure){
-      console.log("Youtube api loading failed "+ failure);
-    });
     }
   }
 })
