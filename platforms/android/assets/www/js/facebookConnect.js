@@ -114,7 +114,7 @@ facebook.factory('facebookServices',function($ionicPopup, $window, $q, $ionicPla
 	        		)
 	        	},
 	        function (response) {
-	        	simpleAlert("Unable to Post, user is not logged in!");
+	        	simpleAlert("Unable to Post rating. User is not logged in!");
 	        });
 	}
 

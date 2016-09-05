@@ -101,8 +101,7 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
     })
   .controller('playerCtrl',function($scope, $ionicPlatform, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
 
-       var d = new Date();
-       var startTime = d.getSeconds();
+       var startTime = (new Date()).getTime();
 
         $scope.closeButtonClicked = function(){
           $scope.youtubeModal.hide();
@@ -122,10 +121,10 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
         }
 
         $scope.myGoBack = function(play, movie) {
-          var d = new Date();
-          var endTime = d.getSeconds();
+          var endTime = (new Date()).getTime();
           var userStayedInPage = endTime - startTime;
-          if(userStayedInPage > 50){
+          console.log(userStayedInPage);
+          if(userStayedInPage > 50 * 1000){
               ratingService.ratingDiag.show($scope, movie).then(function(success){
                 $ionicHistory.goBack();
               }, function(error){
@@ -166,9 +165,9 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
             var id = $stateParams.movieId;
             for(i=0;i<movies.length; i++){
               if (movies[i].id == id){
-                var videoLink = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + movies[i].video_link + "?controls=0&showinfo=0&fs=1");
+                var videoLink = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + movies[i].video_link + "?controls=1&showinfo=0&fs=1");
                 movies[i].video_link = videoLink;
-
+                movies[i].trailer_link = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + movies[i].trailer_link + "?controls=1&showinfo=0&fs=1");
                  $scope.movie = movies[i];
               }
             }
