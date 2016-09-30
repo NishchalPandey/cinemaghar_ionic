@@ -1,0 +1,41 @@
+<ion-view view-title="Cinemaghar Player">
+  <ion-header-bar align-title="center" class="bar-positive">
+   <!--  <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    <h1 class="title">Cinemaghar Player</h1>
+   -->
+     <div class="buttons">
+      <button class="button button-icon button-clear ion-ios-arrow-back" ng-click="myGoBack(play, movie)"> </button>
+    </div>
+
+    <h1 class="title">Cinemaghar Player</h1>
+    </ion-nav-bar>
+
+  </ion-header-bar>
+  <ion-content>
+    <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
+    <you-tube play = "play" video_link="{{movie.video_link}}" spinner="loading"></you-tube>
+    <div class="list videoDetails">
+      <div class="item item-text-wrap movie-details">
+        <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
+        <p>{{movie.description}}</p>
+        <div class="text-right">
+          <!--<p class="tag"><span>Free</span><span>HD</span></p>-->
+          <p class="star">
+            <rating-div rating='movie.Rating'>
+          </p>
+          </rating-div>
+          <a href="" ng-click ='trailer(movie)' class="button button-small button-assertive">Watch Trailer </a> </div>
+      </div>
+    </div>
+    <!--<div class="list movieList arrow">
+      <div class="item item-divider"> suggested videos </div>
+      <a class="item item-thumbnail-left" ng-click="playVideo()"> <img src="img/latest.jpg">
+      <h2>Pretty Hate Machine</h2>
+      <p class="tag"><span>Free</span><span>HD</span></p>
+      <p class="star"><i class="icon ion-ios-star"></i><i class="icon ion-ios-star"></i><i class="icon ion-ios-star"></i><i class="icon ion-ios-star-outline"></i><i class="icon ion-ios-star-outline"></i></p>
+      </a> </div>
+    -->
+  </ion-content>
+</ion-view>

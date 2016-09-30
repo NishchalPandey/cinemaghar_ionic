@@ -1,0 +1,25 @@
+<ion-view view-title={{catagory }} >
+   <ion-header-bar align-title="center" class="bar-positive">
+  <div class="buttons">
+      <button class="button button-icon button-clear ion-ios-arrow-back" ng-click="homePage()"> </button>
+    </div>
+    <h1 class="title">{{catagory | capitalizeFirstLetter}}</h1>
+  </ion-header-bar>
+  <ion-content class="">
+  <!-- <label class="item item-input search-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search">
+  </label> -->
+    <div class="list movieList arrow">
+    <ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner>
+    <a class="item item-thumbnail-left" ng-repeat='movie in allMovies' href="#/player/{{movie.id}}">
+      <img ng-src='http://www.cinemagharhd.com/banners/{{movie.banner_name}}'>
+      <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
+      <p class="tag"><span>Free</span><span>HD</span></p>
+      <p class="star">
+        <rating-div  rating=movie.Rating></rating-div>
+      </p>
+      </a>
+      </div>
+  </ion-content>
+</ion-view>

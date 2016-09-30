@@ -31,3 +31,75 @@ var myDirectives = angular.module('cinemaghar_directives',[])
     }
   }
 })
+.directive('youTube', function($window, ratingService, YouTubeLoader, $ionicPlatform){
+  return{
+    restrict: 'E',
+    transclude: true,
+    scope:
+    {
+      videoLink :"@",
+      play: "=",
+      spinner: "=",
+      trailer:'@',
+      movieName:'@',
+      description:'@'
+    },
+    template: '<div id="player"></div>',
+    link: function(tScope, tElement, tAttrs){
+      YouTubeLoader
+      .load
+      .then(function(success){
+        tScope.$watch('videoLink', function(newValue,oldValue){
+
+          if(typeof(newValue) !="undefined" && newValue != ''){
+            console.log("playing success");
+            var preValue = 0;
+            var player;
+            player = new YT.Player(tElement.children()[0], {
+              height: '300',
+              width: '100%',
+              videoId: newValue,
+              events: {
+                'onReady': function(event){
+                      console.log('youtube player ready');
+                      tScope.$apply(function(){
+                      tScope.spinner = false;
+                    })
+                  },
+                'onStateChange': function(event){
+                    console.log('code ' + event.data);
+                        if (event.data == YT.PlayerState.PLAYING && !done && tScope.trailer != 'true') {
+                        console.log("playing success");
+                          tScope.$apply(function(){
+                            tScope.play.value = true;
+                          });
+                        }
+
+                        if(event.data == YT.PlayerState.UNSTARTED && preValue == YT.PlayerState.BUFFERING){
+                           window.open('http://www.cinemagharhd.com/pages/player.php?videoId='+newValue + '&movieName='+tScope.movieName+'&description='+tScope.description,'_system');
+                        }
+
+                    preValue = event.data;
+                }
+              }
+            });
+          
+            var done = false;
+
+            var pauseVideo = function(player) {
+              return function(){
+            	  player.pauseVideo();
+              }
+            }
+            
+            $ionicPlatform.on("pause", pauseVideo(player));
+          }
+        })
+
+    },
+    function(failure){
+      console.log("Youtube api loading failed "+ failure);
+    });
+    }
+  }
+})

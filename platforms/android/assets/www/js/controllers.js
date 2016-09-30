@@ -99,7 +99,54 @@ angular.module('starter.controllers', ['cinemagharhdServices', 'facebookModule',
           $location.path('/homePage');
         };
     })
-  .controller('playerCtrl',function($scope, $ionicPlatform, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
+      .controller('playerCtrl',function($scope, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
+
+            $scope.closeButtonClicked = function(){
+              $scope.youtubeModal.hide();
+              $scope.youtubeModal.remove();
+            }
+
+            $scope.myGoBack = function(play, movie) {
+              if(play.value == true){
+                  console.log("backbutton tapped");
+                  ratingService.ratingDiag.show($scope, movie).then(function(success){
+                    $ionicHistory.goBack();
+                  }, function(error){
+                    $ionicHistory.goBack();
+                  });
+                }else{
+                //if the rating has not been done this triggers without
+                //ratingDiag being shown
+                $ionicHistory.goBack();
+              }
+            };
+            $scope.loading = true;
+            $scope.play = {};
+
+            $scope.trailer  = function(){
+                $ionicModal.fromTemplateUrl('templates/youtubeModal.html',{
+                scope : $scope
+              }).then(function(modal){
+                  $scope.youtubeModal = modal;
+                  $scope.youtubeModal.show();
+              })
+            }
+
+            movieFactory.getAllMovies()
+              .then(function(success){
+                var movies = success.data;
+                var id = $stateParams.movieId;
+                for(i=0;i<movies.length; i++){
+                  if (movies[i].id == id){
+                    movies[i].video_link = $sce.trustAsResourceUrl(movies[i].video_link);
+                    $scope.movie = movies[i];
+                  }
+                }
+              },function(error){
+                console.log(error);
+            });
+      })
+  .controller('playerCtrl2',function($scope, $ionicPlatform, $ionicModal, $stateParams, movieFactory, ratingService, $sce, $ionicHistory, $ionicPopup){
 
        var startTime = (new Date()).getTime();
 

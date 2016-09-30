@@ -10,8 +10,8 @@
   </ion-header-bar>
   <ion-content>
     <!--ion-spinner icon="crescent" align="center" style="margin-left: auto; margin-right: auto; display:block;" ng-show="loading"></ion-spinner-->
-    <!--you-tube play = "play" video_link="{{movie.video_link}}" spinner="loading"></you-tube-->
-    <iframe id='player' type='text/html' width='100%' height='300' ng-src="{{movie.video_link}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <you-tube play = "play" video_link="{{movie.video_link}}" movie_name="{{movie.name |lowercase | capitalizeFirstLetter}}" description="{{movie.description}}" spinner="loading"></you-tube>
+    <!--iframe id='player' type='text/html' width='100%' height='300' ng-src="{{movie.video_link}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe-->
     <div class="list videoDetails">
       <div class="item item-text-wrap">
         <h2>{{movie.name |lowercase | capitalizeFirstLetter}}</h2>
@@ -21,8 +21,8 @@
 
           <p class="star">
             <rating-div rating='movie.Rating'>
-          </p>
-          </rating-div>
+
+          </rating-div></p>
           <a href="" ng-click ='trailer(movie)' class="button button-small button-assertive">Watch Trailer </a> </div>
       </div>
     </div>

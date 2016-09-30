@@ -1,0 +1,16 @@
+<ion-modal-view class="modal-backdrop-bg">
+		<ion-content class="modal-content-center">
+			<div class="modal-background">
+			<header>
+				<div class="titleBar" style="width:100%;">
+					<button
+						ng-click='closeButtonClicked()'
+						class="button-clear ion-close-circled"
+						style="float:right; font-size:1.5em;">
+					</button>
+				</div>
+			</header>
+			<you-tube class="youtubePlayer" play = "play" video_link="{{movie.trailer_link}}" spinner="loading" trailer='true'></you-tube>
+		</div>
+		</ion-content>
+</ion-modal-view>
